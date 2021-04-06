@@ -41,8 +41,8 @@ const RestaurantScreen: React.FC = () => {
       "https://media-cdn.tripadvisor.com/media/photo-s/1c/3e/c5/71/nosso-buffet-com-variedades.jpg",
     ],
     address: "100 some random address",
-    isOpenNow: false,
-    rating: 4.4,
+    isOpenNow: true,
+    rating: 4.2,
     isClosedTemporary: true,
   };
 
