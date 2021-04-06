@@ -11,6 +11,7 @@ import {
 import { Searchbar } from "react-native-paper";
 import styled from "styled-components";
 import RestaurantInfoCard from "../components/restaurants-info-card.component";
+import { Ionicons } from "@expo/vector-icons";
 
 const isAndroid = Platform.OS === "android";
 
