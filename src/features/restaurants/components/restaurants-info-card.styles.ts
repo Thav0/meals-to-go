@@ -4,6 +4,7 @@ import { Text } from "../../../componentes/typography/text.component";
 
 export const RestaurantCard = styled(Card)`
   background-color: ${(props: any) => props.theme.colors.bg.primary};
+  margin-bottom: ${(props: any) => props.theme.space[3]};
 `;
 export const RestaurantCardCover = styled(Card.Cover)`
   padding: ${(props: any) => props.theme.sizes[1]};

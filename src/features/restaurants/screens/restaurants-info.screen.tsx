@@ -1,51 +1,13 @@
 import React from "react";
-
-import {
-  Platform,
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { FlatList } from "react-native";
 import { Searchbar } from "react-native-paper";
-import styled from "styled-components";
 import RestaurantInfoCard from "../components/restaurants-info-card.component";
-import { Ionicons } from "@expo/vector-icons";
-
-const isAndroid = Platform.OS === "android";
-
-const SafeArea = styled(SafeAreaView)`
-  flex: 1;
-  ${StatusBar.currentHeight && `margin-top:${StatusBar.currentHeight}px`};
-`;
-
-const SearchContainer = styled.View`
-  padding: ${(props: any) => props.theme.space[3]};
-`;
-
-const RestaurantListContainer = styled.View`
-  flex: 1;
-  flex-grow: 1;
-  padding: ${(props: any) => props.theme.space[3]};
-`;
+import { SafeArea, SearchContainer } from "./restaurants-info.styles";
 
 const RestaurantScreen: React.FC = () => {
   const [searchQuery, setSearchQuery] = React.useState("");
 
   const onChangeSearch = (query: string) => setSearchQuery(query);
-
-  const restaurantData = {
-    name: "Some Restaurant",
-    icon: "dd",
-    photos: [
-      "https://media-cdn.tripadvisor.com/media/photo-s/1c/3e/c5/71/nosso-buffet-com-variedades.jpg",
-    ],
-    address: "100 some random address",
-    isOpenNow: true,
-    rating: 4.2,
-    isClosedTemporary: true,
-  };
 
   return (
     <SafeArea>
@@ -56,9 +18,12 @@ const RestaurantScreen: React.FC = () => {
           value={searchQuery}
         />
       </SearchContainer>
-      <RestaurantListContainer>
-        <RestaurantInfoCard restaurant={restaurantData} />
-      </RestaurantListContainer>
+      <FlatList
+        data={[{ name: 1 }, { name: 2 }, { name: 3 }, { name: 4 }]}
+        renderItem={() => <RestaurantInfoCard />}
+        keyExtractor={(item: any) => item.name}
+        contentContainerStyle={{ padding: 16 }}
+      />
     </SafeArea>
   );
 };

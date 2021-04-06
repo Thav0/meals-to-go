@@ -30,23 +30,25 @@ interface RestaurantProp {
 }
 
 const RestaurantInfoCard: React.FC<RestaurantProp> = ({
-  restaurant,
+  restaurant = {},
   ...rest
 }) => {
   const {
-    name,
-    icon,
-    photos,
-    address,
-    isOpenNow,
-    rating,
-    isClosedTemporary,
+    name = "Some Restaurant",
+    icon = "dd",
+    photos = [
+      "https://media-cdn.tripadvisor.com/media/photo-s/1c/3e/c5/71/nosso-buffet-com-variedades.jpg",
+    ],
+    address = "100 some random address",
+    isOpenNow = true,
+    rating = 4.2,
+    isClosedTemporary = true,
   } = restaurant;
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
 
   return (
-    <RestaurantCard>
+    <RestaurantCard elevation={5}>
       <RestaurantCardCover source={{ uri: photos[0] }} />
       <RestaurantCardContent>
         <Text variant="label">{name}</Text>
